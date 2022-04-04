@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='tr'>
+<head>
+    <meta charset='utf-8'>
+    <title>Blank HTML</title>
+    <link rel='stylesheet' src='style.css'/>
+    <script type='text/javascript' src='script.js'></script>
+</head>
+<body>
+    <form class="container" name="calculator">
+        <table>
+            <tr>
+                <th colspan="4"><input type="text" name="res" id="result" disabled/></th>
+            </tr>
+            <tr>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('1')">1</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('2')">2</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('3')">3</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('4')">4</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('5')">5</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('6')">6</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('7')">7</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('8')">8</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('9')">9</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite(',')">,</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('0')">0</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorClear()">C</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('+')">+</button></td>
+                <td><button type="button" class="calc-button" onclick="calculatorWrite('-')">-</button></td>
+            </tr>
+            <tr>
+                <td colspan="4"><button type="button" class="calc-button" onclick="calculatorCalc()">=</button></td>
+            </tr>
+        </table>
+    </form>
+    <style>
+        .container{
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .container>table{
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width:500px;            
+        }
+        #result{
+            width: 480px;
+            height: 40px;
+            padding:0 5px;
+            font-size: large;
+            text-align: right;
+            line-height:40px;
+        }
+        .calc-button{
+            width:100%;
+            background-color: black;
+            color:white;
+            border:0px solid black;
+            padding:10px;
+        }
+    </style>
+    <script>
+        function calculatorWrite(i){
+            let elem=document.getElementById('result');
+            elem.value+=i;
+        }
+        function calculatorClear(){
+            let elem=document.getElementById('result');
+            elem.value='';
+        }
+        function calculatorCalc(){
+            let elem=document.getElementById('result');
+            elem.value=eval(elem.value);
+        }
+    </script>
+</body>
+</html>
